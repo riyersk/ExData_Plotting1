@@ -1,0 +1,6 @@
+d <- read.csv("household_power_consumption.txt", header = FALSE, sep = ";", nrows = 2880, skip = 66637)
+colnames(d) = c("Date", "Time", "Global_active_power", "Global_reactive_power", "Voltage", "Globa_intensity", "Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+a <- seq(as.POSIXct("2007/2/1"), as.POSIXct("2007/2/3"), "mins")
+png(filename = "plot2.png")
+plot(a[1:2880], d$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
+dev.off()
